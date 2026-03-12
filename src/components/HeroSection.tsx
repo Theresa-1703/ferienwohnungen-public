@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import heroImage from "@/assets/Musterstadt.jpg";
+import heroImage from "@/assets/musterstadt.jpg";
 import { Button } from "@/components/ui/button";
 
 const HeroSection = () => {
