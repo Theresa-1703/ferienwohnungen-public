@@ -144,9 +144,8 @@ const InquiryForm = () => {
                   <Select value={apartment} onValueChange={setApartment}>
                     <SelectTrigger><SelectValue placeholder="Wohnung wählen" /></SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="residenz">Residenz Suite (85 m², bis 4 Gäste)</SelectItem>
-                      <SelectItem value="gondoliere">Gondoliere Studio (45 m², bis 2 Gäste)</SelectItem>
-                      <SelectItem value="familie">Familien Apartment (110 m², bis 6 Gäste)</SelectItem>
+                      <SelectItem value="venezia">Ferienwohnung Venezia (85m², bis 5 Gäste)</SelectItem>
+                      <SelectItem value="casanova">Ferienwohnung Casanova (72m², bis 4 Gäste)</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
