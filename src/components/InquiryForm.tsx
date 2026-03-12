@@ -21,6 +21,7 @@ const InquiryForm = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [openPicker, setOpenPicker] = useState<"checkIn" | "checkOut" | null>(null);
 
   const steps = [
     { label: "Reisedaten", icon: CalendarIcon },
@@ -92,64 +93,113 @@ const InquiryForm = () => {
         >
           <AnimatePresence mode="wait">
             {step === 0 && (
-              <motion.div key="step0" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-6">
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="font-body text-sm font-medium text-foreground mb-2 block">Anreise</label>
-                    <Popover>
-                      <PopoverTrigger asChild>
-                        <Button variant="outline" className={cn("w-full justify-start text-left", !checkIn && "text-muted-foreground")}>
-                          <CalendarIcon size={16} className="mr-2" />
-                          {checkIn ? format(checkIn, "dd. MMM yyyy", { locale: de }) : "Datum wählen"}
-                        </Button>
-                      </PopoverTrigger>
-                      <PopoverContent className="w-auto p-0" align="start">
-                        <Calendar mode="single" selected={checkIn} onSelect={setCheckIn} disabled={(d) => d < new Date()} className="p-3 pointer-events-auto" />
-                      </PopoverContent>
-                    </Popover>
+                <motion.div key="step0" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-6">
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="font-body text-sm font-medium text-foreground mb-2 block">Anreise</label>
+                      <Popover
+                          open={openPicker === "checkIn"}
+                          onOpenChange={(open) => setOpenPicker(open ? "checkIn" : null)}
+                      >
+                        <PopoverTrigger asChild>
+                          <Button variant="outline" className={cn("w-full justify-start text-left", !checkIn && "text-muted-foreground")}>
+                            <CalendarIcon size={16} className="mr-2" />
+                            {checkIn ? format(checkIn, "dd. MMM yyyy", { locale: de }) : "Datum wählen"}
+                          </Button>
+                        </PopoverTrigger>
+                        <PopoverContent className="w-auto p-0" align="start">
+                          <Calendar
+                              mode="single"
+                              selected={checkIn}
+                              onSelect={(date) => {
+                                setCheckIn(date);
+                                if (date) {
+                                  // Kurze Verzögerung für das visuelle Feedback, dann Fokus auf Abreise
+                                  setTimeout(() => setOpenPicker("checkOut"), 200);
+                                }
+                              }}
+                              disabled={(d) => d < new Date()}
+                              className="p-3 pointer-events-auto"
+                          />
+                        </PopoverContent>
+                      </Popover>
+                    </div>
+                    <div>
+                      <label className="font-body text-sm font-medium text-foreground mb-2 block">Abreise</label>
+                      <Popover
+                          open={openPicker === "checkOut"}
+                          onOpenChange={(open) => setOpenPicker(open ? "checkOut" : null)}
+                      >
+                        <PopoverTrigger asChild>
+                          <Button variant="outline" className={cn("w-full justify-start text-left", !checkOut && "text-muted-foreground")}>
+                            <CalendarIcon size={16} className="mr-2" />
+                            {checkOut ? format(checkOut, "dd. MMM yyyy", { locale: de }) : "Datum wählen"}
+                          </Button>
+                        </PopoverTrigger>
+                        <PopoverContent className="w-auto p-0" align="start">
+                          <Calendar
+                              mode="single"
+                              selected={checkOut}
+                              onSelect={(date) => {
+                                setCheckOut(date);
+                                if (date) {
+                                  // Nach Auswahl der Abreise: Kalender schließen
+                                  setTimeout(() => setOpenPicker(null), 200);
+                                }
+                              }}
+                              disabled={(d) => d < (checkIn || new Date())}
+                              className="p-3 pointer-events-auto"
+                          />
+                        </PopoverContent>
+                      </Popover>
+                    </div>
                   </div>
-                  <div>
-                    <label className="font-body text-sm font-medium text-foreground mb-2 block">Abreise</label>
-                    <Popover>
-                      <PopoverTrigger asChild>
-                        <Button variant="outline" className={cn("w-full justify-start text-left", !checkOut && "text-muted-foreground")}>
-                          <CalendarIcon size={16} className="mr-2" />
-                          {checkOut ? format(checkOut, "dd. MMM yyyy", { locale: de }) : "Datum wählen"}
-                        </Button>
-                      </PopoverTrigger>
-                      <PopoverContent className="w-auto p-0" align="start">
-                        <Calendar mode="single" selected={checkOut} onSelect={setCheckOut} disabled={(d) => d < (checkIn || new Date())} className="p-3 pointer-events-auto" />
-                      </PopoverContent>
-                    </Popover>
-                  </div>
-                </div>
-              </motion.div>
+                </motion.div>
             )}
 
             {step === 1 && (
-              <motion.div key="step1" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-6">
-                <div>
-                  <label className="font-body text-sm font-medium text-foreground mb-2 block">Anzahl Gäste</label>
-                  <Select value={guests} onValueChange={setGuests}>
-                    <SelectTrigger><SelectValue placeholder="Gäste wählen" /></SelectTrigger>
-                    <SelectContent>
-                      {[1, 2, 3, 4, 5, 6].map(n => (
-                        <SelectItem key={n} value={String(n)}>{n} {n === 1 ? "Gast" : "Gäste"}</SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
-                </div>
-                <div>
-                  <label className="font-body text-sm font-medium text-foreground mb-2 block">Wohnung</label>
-                  <Select value={apartment} onValueChange={setApartment}>
-                    <SelectTrigger><SelectValue placeholder="Wohnung wählen" /></SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="venezia">Ferienwohnung Venezia (85m², bis 5 Gäste)</SelectItem>
-                      <SelectItem value="casanova">Ferienwohnung Casanova (72m², bis 4 Gäste)</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-              </motion.div>
+                <motion.div key="step1" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-6">
+                  <div>
+                    <label className="font-body text-sm font-medium text-foreground mb-2 block">Wohnung</label>
+                    <Select
+                        value={apartment}
+                        onValueChange={(val) => {
+                          setApartment(val);
+                          // Falls Casanova gewählt wird und vorher 5 Gäste drin standen,
+                          // korrigieren wir auf das Maximum von 4.
+                          if (val === "casanova" && Number(guests) > 4) {
+                            setGuests("4");
+                          }
+                        }}
+                    >
+                      <SelectTrigger><SelectValue placeholder="Wohnung wählen" /></SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="venezia">Ferienwohnung Venezia (85m², bis 5 Gäste)</SelectItem>
+                        <SelectItem value="casanova">Ferienwohnung Casanova (72m², bis 4 Gäste)</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  <div>
+                    <label className="font-body text-sm font-medium text-foreground mb-2 block">Anzahl Gäste</label>
+                    <Select value={guests} onValueChange={setGuests} disabled={!apartment}>
+                      <SelectTrigger>
+                        <SelectValue placeholder={!apartment ? "Zuerst Wohnung wählen" : "Gäste wählen"} />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {/* Dynamische Generierung der Optionen basierend auf der Wohnung */}
+                        {Array.from(
+                            { length: apartment === "venezia" ? 5 : 4 },
+                            (_, i) => i + 1
+                        ).map(n => (
+                            <SelectItem key={n} value={String(n)}>
+                              {n} {n === 1 ? "Gast" : "Gäste"}
+                            </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                </motion.div>
             )}
 
             {step === 2 && (
