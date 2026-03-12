@@ -1,4 +1,4 @@
-# 🏡 Ferienwohnungen am Barockpalais – Web-Präsenz
+# 🏡 Ferienwohnungen im Barockpalais
 
 Ein modernes, responsives Web-Projekt für die Vermietung exklusiver Ferienwohnungen. Diese Anwendung entstand als reales Projekt für einen Kunden und wurde für die Portfolio-Präsentation anonymisiert.
 
