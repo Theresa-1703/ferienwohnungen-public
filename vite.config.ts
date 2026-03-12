@@ -10,6 +10,7 @@ export default defineConfig(({ mode }) => {
   const finalEnv = { ...exampleEnv, ...env };
 
   return {
+    base: mode === 'production' ? '/ferienwohnungen-public/' : '/',
 
     server: {
       host: "::",
