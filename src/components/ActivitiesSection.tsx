@@ -12,7 +12,7 @@ const activities = [
 
 const ActivitiesSection = () => {
   return (
-    <section id="aktivitaeten" className="section-padding bg-background">
+    <section id="aktivitaeten" className="section-padding">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

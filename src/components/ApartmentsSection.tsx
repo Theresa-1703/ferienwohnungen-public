@@ -39,7 +39,7 @@ const ApartmentsSection = () => {
   };
 
   return (
-      <section id="wohnungen" className="section-padding bg-background">
+      <section id="wohnungen" className="section-padding">
         <div className="container mx-auto">
           <motion.div
               initial={{ opacity: 0, y: 20 }}

@@ -3,7 +3,7 @@ import gondoliereImage from "@/assets/gondoliere.jpg";
 
 const HistorySection = () => {
   return (
-    <section id="geschichte" className="section-padding bg-secondary">
+    <section id="geschichte" className="section-padding">
       <div className="container mx-auto max-w-4xl">
         <div className="text-center mb-16">
           <p className="font-body text-sm tracking-[0.2em] uppercase text-primary mb-3">Geschichte</p>

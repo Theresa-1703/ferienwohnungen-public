@@ -27,7 +27,7 @@ const HistorySection = () => {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="flex items-center bg-secondary px-8 py-16 lg:px-16"
+          className="flex items-center px-8 py-16 lg:px-16"
         >
           <div>
             <p className="font-body text-sm tracking-[0.2em] uppercase text-primary mb-3">

@@ -89,6 +89,14 @@
   .text-body {
     font-family: var(--font-body);
   }
+
+  .home-page section:nth-of-type(odd) {
+    @apply bg-white;
+  }
+
+  .home-page section:nth-of-type(even) {
+    @apply bg-secondary;
+  }
 }
 
 /* Smooth scrolling */

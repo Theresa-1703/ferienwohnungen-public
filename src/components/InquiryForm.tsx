@@ -48,7 +48,7 @@ const InquiryForm = () => {
   };
 
   return (
-    <section id="kontakt" className="section-padding bg-secondary">
+    <section id="kontakt" className="section-padding">
       <div className="container mx-auto max-w-2xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
