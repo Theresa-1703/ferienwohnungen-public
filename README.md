@@ -4,8 +4,6 @@
 ## TO DO
 
 - add Cookie banner 
-- add page "Rechtliches" with Impressum, Datenschutz, AGB
-- add Gmaps Karte
 
 
 ## Technologien

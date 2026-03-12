@@ -7,7 +7,6 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Impressum from "./pages/Impressum";
 import Datenschutz from "./pages/Datenschutz";
-import AGB from "./pages/AGB";
 
 const queryClient = new QueryClient();
 
@@ -24,7 +23,6 @@ const App = () => (
           {/* Rechtliches */}
           <Route path="/impressum" element={<Impressum />} />
           <Route path="/datenschutz" element={<Datenschutz />} />
-          <Route path="/agb" element={<AGB />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>

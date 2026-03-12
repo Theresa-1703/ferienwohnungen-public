@@ -4,7 +4,6 @@ const Footer = () => {
   const legalLinks = [
     { label: "Impressum", href: "/impressum" },
     { label: "Datenschutz", href: "/datenschutz" },
-    { label: "AGB", href: "/agb" },
   ];
 
   return (
