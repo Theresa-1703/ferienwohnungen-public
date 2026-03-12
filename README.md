@@ -29,7 +29,7 @@ Um die Conversion-Rate der Verfügbarkeitsprüfung zu erhöhen, wurde der Kalend
 
 1.  Repository klonen:
     ```bash
-    git clone [https://github.com/theresa-1703/ferienwohnungen-public.git](https://github.com/theresa-1703/ferienwohnungen-public.git)
+    git clone https://github.com/theresa-1703/ferienwohnungen-public.git
     ```
 2.  Abhängigkeiten installieren:
     ```bash
