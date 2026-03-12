@@ -14,7 +14,8 @@ const Impressum = () => {
                             <h2 className="text-xl font-semibold">Verantwortlich für den Internetauftritt</h2>
                             <p>
                                 {import.meta.env.VITE_CONTACT_NAME}<br />
-                                {import.meta.env.VITE_CONTACT_ADDRESS}<br />
+                                {import.meta.env.VITE_CONTACT_STREET}<br />
+                                {import.meta.env.VITE_CONTACT_CITY_LINE}<br />
                             </p>
                             <p className="mt-2">
                                 Email: <a href="mailto:${import.meta.env.VITE_CONTACT_EMAIL}" className="text-primary hover:underline">{import.meta.env.VITE_CONTACT_EMAIL}</a><br />
@@ -26,7 +27,8 @@ const Impressum = () => {
                             <h2 className="text-xl font-semibold">Verantwortlich für den Inhalt gemäß § 18 MStV</h2>
                             <p>
                                 {import.meta.env.VITE_CONTACT_NAME}<br />
-                                {import.meta.env.VITE_CONTACT_ADDRESS}<br />
+                                {import.meta.env.VITE_CONTACT_STREET}<br />
+                                {import.meta.env.VITE_CONTACT_CITY_LINE}<br />
                             </p>
                         </section>
 

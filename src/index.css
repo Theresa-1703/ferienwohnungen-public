@@ -97,6 +97,10 @@
   .home-page section:nth-of-type(even) {
     @apply bg-secondary;
   }
+
+  .address-container {
+    white-space: pre-line;
+  }
 }
 
 /* Smooth scrolling */

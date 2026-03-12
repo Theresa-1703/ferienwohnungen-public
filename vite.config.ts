@@ -23,7 +23,8 @@ export default defineConfig(({ mode }) => {
       'import.meta.env.VITE_CONTACT_NAME': JSON.stringify(finalEnv.VITE_CONTACT_NAME),
       'import.meta.env.VITE_CONTACT_EMAIL': JSON.stringify(finalEnv.VITE_CONTACT_EMAIL),
       'import.meta.env.VITE_CONTACT_PHONE': JSON.stringify(finalEnv.VITE_CONTACT_PHONE),
-      'import.meta.env.VITE_CONTACT_ADDRESS': JSON.stringify(finalEnv.VITE_CONTACT_ADDRESS),
+      'import.meta.env.VITE_CONTACT_STREET': JSON.stringify(finalEnv.VITE_CONTACT_STREET),
+      'import.meta.env.VITE_CONTACT_CITY_LINE': JSON.stringify(finalEnv.VITE_CONTACT_CITY_LINE),
       'import.meta.env.VITE_CONTACT_CITY': JSON.stringify(finalEnv.VITE_CONTACT_CITY),
     },
     plugins: [

@@ -69,7 +69,8 @@ const Datenschutz = () => {
                                 <h3 className="text-lg font-bold text-black">Hinweis auf die verantwortliche Partei</h3>
                                 <p className="text-black">
                                     {import.meta.env.VITE_CONTACT_NAME}<br />
-                                    {import.meta.env.VITE_CONTACT_ADDRESS}<br />
+                                    {import.meta.env.VITE_CONTACT_STREET}<br />
+                                    {import.meta.env.VITE_CONTACT_CITY_LINE}<br />
                                 </p>
                                 <p className="text-sm">Der Verantwortliche ist die natürliche oder juristische Person, die allein oder gemeinsam mit anderen über die Zwecke und Mittel der Verarbeitung personenbezogenen Daten (z. B. Namen, E-Mail-Adressen oder Ähnliches) entscheidet.</p>
                             </div>

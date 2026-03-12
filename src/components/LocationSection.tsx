@@ -54,7 +54,8 @@ const LocationSection = () => {
                 <h3 className="font-display text-lg font-semibold text-foreground">Adresse</h3>
                 <p className="font-body text-sm text-muted-foreground">
                   Sandpalais<br />
-                  {import.meta.env.VITE_CONTACT_ADDRESS}<br />
+                  {import.meta.env.VITE_CONTACT_STREET}<br />
+                  {import.meta.env.VITE_CONTACT_CITY_LINE}<br />
                 </p>
               </div>
             </div>
@@ -80,8 +81,8 @@ const LocationSection = () => {
               <div>
                 <h3 className="font-display text-lg font-semibold text-foreground">Check-in / Check-out</h3>
                 <p className="font-body text-sm text-muted-foreground">
-                  Check-in: ab 15:00 Uhr<br />
-                  Check-out: bis 11:00 Uhr
+                  Check-in ab 15:00 Uhr<br />
+                  Check-out bis 11:00 Uhr
                 </p>
               </div>
             </div>
