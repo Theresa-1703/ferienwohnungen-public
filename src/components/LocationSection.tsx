@@ -30,7 +30,7 @@ const LocationSection = () => {
               className="rounded-lg overflow-hidden h-80 lg:h-auto border border-border"
           >
           <iframe
-              src=""
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4679303.2546157045!2d4.15864363819541!3d48.83167801663444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479634cc9735e6d3%3A0x2f8a3f92c976b0bf!2s67112%20Mutterstadt!5e1!3m2!1sde!2sde!4v1773339439212!5m2!1sde!2sde"
               width="100%"
               height="100%"
               style={{border: 0, minHeight: 320}}
