@@ -35,13 +35,6 @@ jobs:
 
       - name: Build project
         run: npm run build
-        env:
-          VITE_CONTACT_NAME: ${{ secrets.VITE_CONTACT_NAME }}
-          VITE_CONTACT_EMAIL: ${{ secrets.VITE_CONTACT_EMAIL }}
-          VITE_CONTACT_PHONE: ${{ secrets.VITE_CONTACT_PHONE }}
-          VITE_CONTACT_STREET: ${{ secrets.VITE_CONTACT_STREET }}
-          VITE_CONTACT_CITY_LINE: ${{ secrets.VITE_CONTACT_CITY_LINE }}
-          VITE_CONTACT_CITY: ${{ secrets.VITE_CONTACT_CITY }}
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
